@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import "./App.css";
+import Dashboard from "./pages/Dashboard";
+import Eventos from "./pages/Eventos";
+import Invitados from "./pages/Invitados";
+import Scanner from "./pages/Scanner";
+import Staff from "./pages/Staff";
+import Sidebar  from "./components/Sidebar/Sidebar"
+import Navbar from "./components/Navbar/Navbar";
+import { useLocalStorage } from "./Helpers/useLocalStorage";
+import { useState } from "react";
 
 function App() {
+  const [sidebar, setSidebar] = useState(true);
+  const [IdEvento, setIdEvento] = useLocalStorage('IdEvento',1);
+
+  const showSidebar = () => setSidebar(!sidebar);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Sidebar sidebar={sidebar} showSidebar={showSidebar}/>
+    <Navbar showSidebar={showSidebar} setIdEvento={setIdEvento}/>
+      <Routes>
+        <Route path="/" element={<Dashboard IdEvento={IdEvento}/>}/>
+        <Route path="/eventos" element={<Eventos/>}/>
+        <Route path="/invitados" element={<Invitados/>}/>
+        <Route path="/staff" element={<Staff/>}/>
+        <Route path="/scanner" element={<Scanner/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
