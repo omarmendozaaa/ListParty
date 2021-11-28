@@ -2,8 +2,16 @@ import React from "react";
 import "./Navbar.css";
 import { EventosData } from "./EventosData";
 import mainicon from "./party-popper.png";
+import { useNavigate } from "react-router";
 
-function Navbar({showSidebar, setIdEvento}) {
+function Navbar({showSidebar, setIdEvento, SetUser}) {
+  let navigate = useNavigate()
+  const handleLogout = (event) => {
+    event.preventDefault();
+    window.localStorage.removeItem("loggedUser");
+    SetUser(null)
+    navigate('../login', { replace: true });
+  };
   return (
     <header className="header">
         <div className=".MainIconNav" onClick={showSidebar}>
@@ -28,7 +36,7 @@ function Navbar({showSidebar, setIdEvento}) {
         </select>
         {console.log(localStorage.IdEvento)}
       </div>
-      <div className="logOut">
+      <div className="logOut" onClick={handleLogout}>
         <ion-icon name="log-out-outline"></ion-icon>
       </div>
     </header>
