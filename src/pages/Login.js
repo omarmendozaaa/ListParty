@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { login } from "../Services/LoginService";
+import "./Login/Login.css";
 
 function Login({ SetUser }) {
   const [username, setUsername] = useState("");
@@ -13,7 +14,12 @@ function Login({ SetUser }) {
     await login({ username, password })
       .then((user) => {
         window.localStorage.setItem("loggedUser", JSON.stringify(user));
-        window.localStorage.setItem("EventoId", JSON.stringify(user.eventos[0] === undefined ? "" : user.eventos[0].evento.id));
+        window.localStorage.setItem(
+          "EventoId",
+          JSON.stringify(
+            user.eventos[0] === undefined ? "" : user.eventos[0].evento.id
+          )
+        );
         SetUser(user);
         navigate("../dashboard", { replace: true });
       })
@@ -22,27 +28,38 @@ function Login({ SetUser }) {
       });
   };
   return (
-    <form>
-      <div>
-        <label>username:</label>
-        <input
-          type="text"
-          value={username}
-          name="username"
-          onChange={(e) => setUsername(e.target.value)}
-        ></input>
+    <div className="container-login">
+      <div className="container-form">
+        <h1>Iniciar Sesión</h1>
+        <form>
+          <div className="txt_field">
+            <input
+              type="text"
+              value={username}
+              name="username"
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <span />
+            <label>Username</label>
+          </div>
+          <div className="txt_field">
+            <input
+              className="txt-input"
+              type="password"
+              value={password}
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <span />
+            <label>Contraseña</label>
+          </div>
+          <button className="btn-login" onClick={handleLogin}>Iniciar Sesión</button>
+        </form>
+        <label className="crear-cuenta">¿Aún no tienes una cuenta? Solicitala <a href="https://wa.me/51991905743"> aquí </a></label>
       </div>
-      <div>
-        <label>contraseñá:</label>
-        <input
-          type="password"
-          value={password}
-          name="password"
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-      </div>
-      <button onClick={handleLogin}>Login</button>
-    </form>
+    </div>
   );
 }
 
