@@ -111,6 +111,7 @@
 
 @media (max-width: 500px) {
   .sidebar.active {
-    left: -100px;
+    transition: 0ms;
+    visibility: hidden;
   }
 }
