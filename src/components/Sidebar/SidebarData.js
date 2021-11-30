@@ -1,7 +1,7 @@
 export const SidebarData = [
     {
         title: 'Dashboard',
-        path: '/',
+        path: '/dashboard',
         icon: 'home-outline',
     },
     {
@@ -23,10 +23,11 @@ export const SidebarData = [
         title: 'Scanner',
         path: '/scanner',
         icon: 'scan-outline',
-    },
-    {
-        title: 'Configuración',
-        path: '/',
-        icon: 'construct-outline'
     }
+    //,
+    // {
+    //     title: 'Configuración',
+    //     path: '/configuracion',
+    //     icon: 'construct-outline'
+    // }
 ]
