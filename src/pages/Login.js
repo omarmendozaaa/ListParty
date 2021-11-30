@@ -13,6 +13,7 @@ function Login({ SetUser }) {
     await login({ username, password })
       .then((user) => {
         window.localStorage.setItem("loggedUser", JSON.stringify(user));
+        window.localStorage.setItem("EventoId", JSON.stringify(user.eventos[0] === undefined ? "" : user.eventos[0].evento.id));
         SetUser(user);
         navigate("../dashboard", { replace: true });
       })
