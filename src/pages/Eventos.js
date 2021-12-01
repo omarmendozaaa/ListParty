@@ -1,3 +1,4 @@
+import { MDBBtn, MDBBtnGroup, MDBIcon } from "mdb-react-ui-kit";
 import React from "react";
 import ButtonAgregarEvento from "../components/AgregarEvento/ButtonAgregarEvento";
 import Content from "../components/Content/Content";
@@ -41,26 +42,17 @@ function Eventos() {
                       <td>{item.evento.fecha}</td>
                       <td>{item.rol}</td>
                       <td>
-                      <div class="btn-group shadow-0 btn-group-lg" role="group" aria-label="Basic example">
-                          <button
-                            type="button"
-                            class="btn btn-link btn-sm px-3 btn-lg"
-                          >
-                            <i class="fab fa-whatsapp"></i>
-                          </button>
-                          <button
-                            type="button"
-                            class="btn btn-link btn-sm px-3 btn-lg"
-                          >
-                            <i class="fas fa-pen"></i>
-                          </button>
-                          <button
-                            type="button"
-                            class="btn btn-link btn-sm px-3 btn-lg"
-                          >
-                            <i class="fas fa-trash"></i>
-                          </button>
-                        </div>
+                        <MDBBtnGroup size='lg' aria-label='Basic example' shadow='0'>
+                          <MDBBtn color="link">
+                            <MDBIcon size='lg' fab icon="whatsapp" />
+                          </MDBBtn>
+                          <MDBBtn color="link">
+                            <MDBIcon size='lg' fas icon="fas fa-pen" />
+                          </MDBBtn>
+                          <MDBBtn color="link">
+                            <MDBIcon size='lg' fas icon="trash-alt" />
+                          </MDBBtn>
+                        </MDBBtnGroup>
                       </td>
                     </tr>
                   );

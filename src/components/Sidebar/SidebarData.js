@@ -1,9 +1,9 @@
 export const SidebarData = [
-    {
-        title: 'Dashboard',
-        path: '/dashboard',
-        icon: 'home-outline',
-    },
+    // {
+    //     title: 'Dashboard',
+    //     path: '/dashboard',
+    //     icon: 'home-outline',
+    // },
     {
         title: 'Eventos',
         path: '/eventos',
@@ -14,11 +14,11 @@ export const SidebarData = [
         path: '/invitados',
         icon: 'people-outline',
     },
-    {
-        title: 'Staff',
-        path: '/staff',
-        icon: 'logo-gitlab',
-    },
+    // {
+    //     title: 'Staff',
+    //     path: '/staff',
+    //     icon: 'logo-gitlab',
+    // },
     {
         title: 'Scanner',
         path: '/scanner',
