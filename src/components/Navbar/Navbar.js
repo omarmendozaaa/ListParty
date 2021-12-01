@@ -3,6 +3,7 @@ import "./Navbar.css";
 import mainicon from "./party-popper.png";
 import { useNavigate } from "react-router";
 import { useEventos } from "../../Hooks/useEventos";
+import ButtonAgregarEvento from "../AgregarEvento/ButtonAgregarEvento";
 
 function Navbar({ showSidebar, SetUser }) {
   let navigate = useNavigate();
@@ -24,9 +25,7 @@ function Navbar({ showSidebar, SetUser }) {
       </div>
       <div className="evento">
         {Eventos[0] === undefined ? (
-          <div>
-            <button>Agregar Evento </button>
-          </div>
+          <ButtonAgregarEvento/>
         ) : (
           <select
             className="custom-select form-control select-evento"
