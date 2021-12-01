@@ -28,7 +28,7 @@ function App() {
           <Route path="/invitados" element={<Invitados />} />
           <Route path="/staff" element={<Staff />} />
           <Route path="/scanner" element={<Scanner />} />
-          <Route path="*" element={<Navigate to="dashboard" />} />
+          <Route path="*" element={<Navigate to="eventos" />} />
         </Routes>
       </div>
     );
